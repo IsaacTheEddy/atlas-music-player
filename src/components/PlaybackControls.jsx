@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import play from "../assets/play.svg";
 import fastfoward from "../assets/fast-forward.svg";
 import rewind from "../assets/rewind.svg";
@@ -9,10 +9,22 @@ function handleClick(info) {
 }
 
 export function PlayBack() {
+  const [playback, setPlayback] = useState(1);
+
+  const handlePlayback = (speed) => {
+    if (speed === 1) {
+      setPlayback(2);
+    } else if (speed === 2) {
+      setPlayback(0.5);
+    } else if (speed === 0.5) {
+      setPlayback(1);
+    }
+  };
+
   return (
-    <div className="flex flex-row justify-around">
-      <button onClick={() => handleClick("1x")}>
-        <p className="text-5xl">1x</p>
+    <div className="flex flex-row justify-between">
+      <button onClick={() => handlePlayback(playback)}>
+        <p className="text-5xl font-medium">{playback}x</p>
       </button>
       <button onClick={() => handleClick("rewind")}>
         <img src={rewind} alt="" className="size-15" />
