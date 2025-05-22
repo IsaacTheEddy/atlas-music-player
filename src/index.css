@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme{
+    --color-DarkChocalate: #2A0800;
+    --color-Mocha: #775144;
+    --color-Lightpink: #C09891;
+    --color-KindaGray: #BEA8A7;
+    --color-Lightsoftie: #F4DBD8;
+}
+

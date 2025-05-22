@@ -4,29 +4,38 @@ import { Songs } from "./Songs";
 
 export function PlayList() {
   return (
-    <div className="flex flex-col">
-      <Songs title="Painted in Blue" artist="Soul Canvas" duration="5:55" />
-      <Songs title="Tidal Drift" artist="Echoes of the Sea" duration="8:02" />
-      <Songs title="Fading Shadows" artist="The Emberlight" duration="3:01" />
-      <Songs title="Cosmic Drift" artist="Solar Flare" duration="5:01" />
-      <Songs title="Urban Serenade" artist="Midnight Groove" duration="4:54" />
-      <Songs
-        title="Whispers in the Wind"
-        artist="Rust & Ruin"
-        duration="6:13"
-      />
-      <Songs title="Electric Fever" artist="Neon Jungle" duration="8:41" />
-      <Songs
-        title="Electric Wildflower"
-        artist="Velvet Ember"
-        duration="2:27"
-      />
-      <Songs title="Golden Haze" artist="Velvet Waves" duration="3:15" />
-      <Songs
-        title="Shatter the Silence"
-        artist="Thunderclap Echo"
-        duration="8:22"
-      />
+    <div className="flex w-100 flex-col">
+      <div className="border-double max-md:border-t-8 dark:border-Mocha">
+        <h1 className="justify-center border-Lightpink pb-5 font-sans text-2xl font-bold">
+          Playlist
+        </h1>
+        <Songs title="Painted in Blue" artist="Soul Canvas" duration="5:55" />
+        <Songs title="Tidal Drift" artist="Echoes of the Sea" duration="8:02" />
+        <Songs title="Fading Shadows" artist="The Emberlight" duration="3:01" />
+        <Songs title="Cosmic Drift" artist="Solar Flare" duration="5:01" />
+        <Songs
+          title="Urban Serenade"
+          artist="Midnight Groove"
+          duration="4:54"
+        />
+        <Songs
+          title="Whispers in the Wind"
+          artist="Rust & Ruin"
+          duration="6:13"
+        />
+        <Songs title="Electric Fever" artist="Neon Jungle" duration="8:41" />
+        <Songs
+          title="Electric Wildflower"
+          artist="Velvet Ember"
+          duration="2:27"
+        />
+        <Songs title="Golden Haze" artist="Velvet Waves" duration="3:15" />
+        <Songs
+          title="Shatter the Silence"
+          artist="Thunderclap Echo"
+          duration="8:22"
+        />
+      </div>
     </div>
   );
 }
