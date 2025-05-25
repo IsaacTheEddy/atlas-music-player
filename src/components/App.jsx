@@ -8,7 +8,6 @@ function App() {
   const [ass, setA] = useState(false);
   return (
     <>
-      Y
       {ass === false ? (
         <Skelton />
       ) : (
