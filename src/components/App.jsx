@@ -5,10 +5,10 @@ import { Skelton } from "./Skeleton/Skeleton";
 import { useState } from "react";
 
 function App() {
-  const [ass, setA] = useState(false);
+  const [a, setA] = useState(false);
   return (
     <>
-      {ass === false ? (
+      {a === false ? (
         <Skelton />
       ) : (
         <div className="flex h-full min-h-screen flex-col bg-KindaGray dark:bg-DarkChocalate dark:text-white">
