@@ -14,7 +14,8 @@
     "flowbite": "3.1.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "tailwindcss": "4.1.7"
+    "tailwindcss": "4.1.7",
+    "TypeScript": "npm:typescript@5.7.3"
   },
   "devDependencies": {
     "@types/node": "22.10.5",

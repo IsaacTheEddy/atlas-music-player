@@ -1,7 +1,10 @@
-import React from "react";
 import cover from "../assets/placeholder.svg";
+import { useEffect } from "react";
+
+
 
 export function CoverArt() {
+
   return (
     <>
       <img
