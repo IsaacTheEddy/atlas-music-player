@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from "react";
 import { DataType } from "./App";
 
-interface CurrentSongContextType extends DataType {
+interface CurrentSongContextType {
   currentSong: DataType;
   setCurrentSong: React.Dispatch<React.SetStateAction<DataType>>;
   playlist: DataType[];
@@ -18,14 +18,14 @@ interface CurrentSongContextType extends DataType {
   setPlayback: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const currentSongContext = createContext<
-  CurrentSongContextType | undefined
->(undefined);
+export const currentSongContext = createContext<CurrentSongContextType | null>(
+  null,
+);
 
 export function useCurrentSongContext() {
   const currentsong = useContext(currentSongContext);
 
-  if (currentsong === undefined) {
+  if (currentsong === null) {
     throw new Error("Use current song context correctly scrub");
   }
   return currentsong;

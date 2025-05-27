@@ -1,12 +1,12 @@
 import { useCurrentSongContext } from "./context";
 
 export function CoverArt() {
-  const { cover } = useCurrentSongContext();
+  const { currentSong } = useCurrentSongContext();
   return (
     <>
       <img
         className="size-100 flex-1 rounded-2xl"
-        src={cover}
+        src={currentSong.cover}
         alt="placeholder"
       />
     </>

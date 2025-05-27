@@ -7,7 +7,7 @@ import { currentSongContext } from "./context";
 import React, { use, useEffect, useState } from "react";
 
 export interface DataType {
-  id: string;
+  id?: string;
   title?: string;
   artist?: string;
   genre?: string;
@@ -17,18 +17,15 @@ export interface DataType {
 }
 
 export const App: React.FC = () => {
-  const [currentSong, setCurrentSong] = useState<DataType>(
-    {
-      id: "hdees11mmk6g078ewijlly1r",
-      title: "",
-      artist: "",
-      genre: "",
-      duration: 0,
-      cover: "",
-      isPlaying: true,
-    },
-    [],
-  );
+  const [currentSong, setCurrentSong] = useState<DataType>({
+    id: "hdees11mmk6g078ewijlly1r",
+    title: "",
+    artist: "",
+    genre: "",
+    duration: 0,
+    cover: "",
+    isPlaying: true,
+  });
 
   const [isPlaying, setIsPlaying] = useState(true);
   const [mute, setMute] = useState(false);
@@ -47,13 +44,14 @@ export const App: React.FC = () => {
         }
         const jsonData: DataType[] = await response.json();
         setPlaylist(jsonData);
+        setCurrentSong(jsonData[0]);
+        setIndex(0);
       } catch (e: any) {
         throw new Error("Error here");
       }
     };
     api();
   }, []);
-  console.log(currentSong);
 
   return (
     <>
