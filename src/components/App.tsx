@@ -17,35 +17,38 @@ export interface DataType {
 }
 
 export const App: React.FC = () => {
-  const [currentSong, setCurrentSong] = useState<DataType>({
-    id: "hdees11mmk6g078ewijlly1r",
-    title: "",
-    artist: "",
-    genre: "",
-    duration: 0,
-    cover: "",
-    isPlaying: true,
-  });
+  const [currentSong, setCurrentSong] = useState<DataType>(
+    {
+      id: "hdees11mmk6g078ewijlly1r",
+      title: "",
+      artist: "",
+      genre: "",
+      duration: 0,
+      cover: "",
+      isPlaying: true,
+    },
+    [],
+  );
 
   const [isPlaying, setIsPlaying] = useState(true);
   const [mute, setMute] = useState(false);
   const [volume, setVolume] = useState(0);
   const [playback, setPlayback] = useState(1);
   const [loading, setLoading] = useState<boolean>(false);
+  const [index, setIndex] = useState<number>(0);
+  const [playlist, setPlaylist] = useState<DataType[]>([]);
 
   useEffect(() => {
     const api = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:5173/api/v1/songs/${currentSong.id}`,
-        );
+        const response = await fetch("http://localhost:5173/api/v1/playlist");
         if (!response.ok) {
-          throw new Error("error");
+          throw new Error("Error there");
         }
-        let jsonData: DataType = await response.json();
-        setCurrentSong(jsonData);
+        const jsonData: DataType[] = await response.json();
+        setPlaylist(jsonData);
       } catch (e: any) {
-        throw new Error("error");
+        throw new Error("Error here");
       }
     };
     api();
@@ -56,6 +59,9 @@ export const App: React.FC = () => {
     <>
       <currentSongContext.Provider
         value={{
+          playlist,
+          index,
+          setIndex,
           currentSong,
           setCurrentSong,
           isPlaying,
