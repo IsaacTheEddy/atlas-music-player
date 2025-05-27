@@ -15,6 +15,7 @@ export interface DataType {
   cover?: string;
   isPlaying?: boolean;
 }
+const PAGE_SIZE = 1;
 
 export const App: React.FC = () => {
   const [currentSong, setCurrentSong] = useState<DataType>({
@@ -27,12 +28,11 @@ export const App: React.FC = () => {
     isPlaying: true,
   });
 
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [mute, setMute] = useState(false);
-  const [volume, setVolume] = useState(0);
-  const [playback, setPlayback] = useState(1);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [mute, setMute] = useState<boolean>(false);
+  const [volume, setVolume] = useState<number>(0);
+  const [playback, setPlayback] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
-  const [index, setIndex] = useState<number>(0);
   const [playlist, setPlaylist] = useState<DataType[]>([]);
 
   useEffect(() => {
@@ -45,7 +45,6 @@ export const App: React.FC = () => {
         const jsonData: DataType[] = await response.json();
         setPlaylist(jsonData);
         setCurrentSong(jsonData[0]);
-        setIndex(0);
       } catch (e: any) {
         throw new Error("Error here");
       }
@@ -58,8 +57,6 @@ export const App: React.FC = () => {
       <currentSongContext.Provider
         value={{
           playlist,
-          index,
-          setIndex,
           currentSong,
           setCurrentSong,
           isPlaying,

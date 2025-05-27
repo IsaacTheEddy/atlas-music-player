@@ -6,8 +6,6 @@ interface CurrentSongContextType {
   setCurrentSong: React.Dispatch<React.SetStateAction<DataType>>;
   playlist: DataType[];
   setPlaylist: React.Dispatch<React.SetStateAction<DataType[]>>;
-  index: number;
-  setIndex: React.Dispatch<React.SetStateAction<number>>;
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   mute: boolean;

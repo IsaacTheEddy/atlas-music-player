@@ -10,7 +10,12 @@ interface DataType {
 }
 
 const PlayList = ({}) => {
-  const { playlist, setCurrentSong } = useCurrentSongContext();
+  const { playlist, setCurrentSong, index, setIndex } = useCurrentSongContext();
+
+  const handleClick = (song: any) => {
+    setCurrentSong(song);
+  };
+
   return (
     <div className="flex w-100 flex-col">
       <div className="border-double max-md:border-t-8 dark:border-Mocha">
@@ -21,7 +26,7 @@ const PlayList = ({}) => {
           return (
             <div
               className="flex flex-row rounded-md hover:bg-Mocha"
-              onClick={(e) => setCurrentSong(song)}
+              onClick={(e) => handleClick(song)}
               key={song.id}
             >
               <div className="flex w-full flex-col">
