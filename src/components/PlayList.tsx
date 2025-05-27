@@ -1,41 +1,61 @@
-import React from "react";
-import data from "../playlist.json";
+// import data from "../playlist.json";
 import { Songs } from "./Songs";
 
-export function PlayList() {
+import { useState, useEffect, useContext } from "react";
+
+interface DataType {
+  id: string;
+  title: string;
+  artist: string;
+  genre: string;
+  duration: number;
+}
+
+const PlayList = ({}) => {
+  const [data, setData] = useState<DataType[]>([]);
+  useEffect(() => {
+    const api = async () => {
+      try {
+        const response = await fetch("http://localhost:5173/api/v1/playlist");
+        if (!response.ok) {
+          throw new Error("Error");
+        }
+        const jsonData: DataType[] = await response.json();
+        setData(jsonData);
+      } catch (e: any) {
+        throw new Error("Error");
+      }
+    };
+    api();
+  }, []);
+
   return (
     <div className="flex w-100 flex-col">
       <div className="border-double max-md:border-t-8 dark:border-Mocha">
         <h1 className="justify-center border-Lightpink pb-5 font-sans text-2xl font-bold">
           Playlist
         </h1>
-        <Songs title="Painted in Blue" artist="Soul Canvas" duration="5:55" />
-        <Songs title="Tidal Drift" artist="Echoes of the Sea" duration="8:02" />
-        <Songs title="Fading Shadows" artist="The Emberlight" duration="3:01" />
-        <Songs title="Cosmic Drift" artist="Solar Flare" duration="5:01" />
-        <Songs
-          title="Urban Serenade"
-          artist="Midnight Groove"
-          duration="4:54"
-        />
-        <Songs
-          title="Whispers in the Wind"
-          artist="Rust & Ruin"
-          duration="6:13"
-        />
-        <Songs title="Electric Fever" artist="Neon Jungle" duration="8:41" />
-        <Songs
-          title="Electric Wildflower"
-          artist="Velvet Ember"
-          duration="2:27"
-        />
-        <Songs title="Golden Haze" artist="Velvet Waves" duration="3:15" />
-        <Songs
-          title="Shatter the Silence"
-          artist="Thunderclap Echo"
-          duration="8:22"
-        />
+        {data.map((song: DataType) => {
+          return (
+            <div
+              className="flex flex-row rounded-md hover:bg-Mocha"
+              onClick={(e) => alert(song.title)}
+            >
+              <div className="flex w-full flex-col">
+                <h2 className="font-sans font-medium">{song.title}</h2>
+                <p className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
+                  {song.artist}
+                </p>
+              </div>
+              <div className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
+                <p>{song.duration}</p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
-}
+};
+
+export default PlayList;

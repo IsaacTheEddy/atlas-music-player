@@ -1,6 +1,6 @@
 import { CoverArt } from "./CoverArt";
 import { PlayBack } from "./PlaybackControls";
-import { SongHolder } from "./SongHolder";
+import SongHolder from "./SongHolder";
 import { VolumeControl } from "./VolumeControls";
 
 export default function MusicPlayer() {
