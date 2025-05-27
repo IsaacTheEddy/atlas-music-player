@@ -4,16 +4,22 @@ import { DataType } from "./App";
 interface CurrentSongContextType {
   currentSong: DataType;
   setCurrentSong: React.Dispatch<React.SetStateAction<DataType>>;
+  currentSongIndex: number;
+  setCurrentSongIndex: React.Dispatch<React.SetStateAction<number>>;
   playlist: DataType[];
   setPlaylist: React.Dispatch<React.SetStateAction<DataType[]>>;
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  shuffle: boolean;
+  setShuffle: React.Dispatch<React.SetStateAction<boolean>>;
   mute: boolean;
   setMute: React.Dispatch<React.SetStateAction<boolean>>;
   volume: number;
   setVolume: React.Dispatch<React.SetStateAction<number>>;
   playback: number;
   setPlayback: React.Dispatch<React.SetStateAction<number>>;
+  playNextSong: () => void;
+  playPreviousSong: () => void;
 }
 
 export const currentSongContext = createContext<CurrentSongContextType | null>(

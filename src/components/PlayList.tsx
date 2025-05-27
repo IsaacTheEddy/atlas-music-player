@@ -1,16 +1,8 @@
 // import data from "../playlist.json";
-import { useCurrentSongContext } from "./context";
-
-interface DataType {
-  id: string;
-  title: string;
-  artist: string;
-  genre: string;
-  duration: number;
-}
+import { currentSongContext, useCurrentSongContext } from "./context";
 
 const PlayList = ({}) => {
-  const { playlist, setCurrentSong, index, setIndex } = useCurrentSongContext();
+  const { playlist, currentSong, setCurrentSong } = useCurrentSongContext();
 
   const handleClick = (song: any) => {
     setCurrentSong(song);
@@ -23,24 +15,49 @@ const PlayList = ({}) => {
           Playlist
         </h1>
         {playlist.map((song) => {
-          return (
-            <div
-              className="flex flex-row rounded-md hover:bg-Mocha"
-              onClick={(e) => handleClick(song)}
-              key={song.id}
-            >
-              <div className="flex w-full flex-col">
-                <h2 className="font-sans font-medium">{song.title}</h2>
-                <p className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
-                  {song.artist}
-                  {song.cover}
-                </p>
-              </div>
-              <div className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
-                <p>{song.duration}</p>
-              </div>
-            </div>
-          );
+          if (song.id === currentSong.id) {
+            return (
+              <>
+                <div
+                  className="flex flex-row rounded-md bg-Mocha hover:bg-Mocha"
+                  onClick={(e) => handleClick(song)}
+                  key={song.id}
+                >
+                  <div className="flex w-full flex-col">
+                    <h2 className="font-sans font-medium">{song.title}</h2>
+                    <p className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
+                      {song.artist}
+                      {song.cover}
+                    </p>
+                  </div>
+                  <div className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
+                    <p>{song.duration}</p>
+                  </div>
+                </div>
+              </>
+            );
+          } else {
+            return (
+              <>
+                <div
+                  className="flex flex-row rounded-md hover:bg-Mocha"
+                  onClick={(e) => handleClick(song)}
+                  key={song.id}
+                >
+                  <div className="flex w-full flex-col">
+                    <h2 className="font-sans font-medium">{song.title}</h2>
+                    <p className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
+                      {song.artist}
+                      {song.cover}
+                    </p>
+                  </div>
+                  <div className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
+                    <p>{song.duration}</p>
+                  </div>
+                </div>
+              </>
+            );
+          }
         })}
       </div>
     </div>

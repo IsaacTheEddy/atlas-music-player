@@ -5,6 +5,7 @@ import PlayList from "./PlayList";
 import { currentSongContext } from "./context";
 // import { Skelton } from "./Skeleton/Skeleton";
 import React, { use, useEffect, useState } from "react";
+import { json } from "stream/consumers";
 
 export interface DataType {
   id?: string;
@@ -18,6 +19,7 @@ export interface DataType {
 const PAGE_SIZE = 1;
 
 export const App: React.FC = () => {
+  const [playlist, setPlaylist] = useState<DataType[]>([]);
   const [currentSong, setCurrentSong] = useState<DataType>({
     id: "hdees11mmk6g078ewijlly1r",
     title: "",
@@ -27,13 +29,14 @@ export const App: React.FC = () => {
     cover: "",
     isPlaying: true,
   });
+  const [currentSongIndex, setCurrentSongIndex] = useState<number>(0);
 
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [mute, setMute] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(0);
   const [playback, setPlayback] = useState<number>(1);
+  const [shuffle, setShuffle] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
-  const [playlist, setPlaylist] = useState<DataType[]>([]);
 
   useEffect(() => {
     const api = async () => {
@@ -44,7 +47,10 @@ export const App: React.FC = () => {
         }
         const jsonData: DataType[] = await response.json();
         setPlaylist(jsonData);
-        setCurrentSong(jsonData[0]);
+        if (jsonData.length > 0) {
+          setCurrentSong(jsonData[0]);
+          setCurrentSongIndex(0);
+        }
       } catch (e: any) {
         throw new Error("Error here");
       }
@@ -59,6 +65,8 @@ export const App: React.FC = () => {
           playlist,
           currentSong,
           setCurrentSong,
+          currentSongIndex,
+          setCurrentSongIndex,
           isPlaying,
           setIsPlaying,
           volume,
@@ -67,6 +75,8 @@ export const App: React.FC = () => {
           setMute,
           playback,
           setPlayback,
+          shuffle,
+          setShuffle,
         }}
       >
         <div className="flex h-full min-h-screen flex-col bg-KindaGray dark:bg-DarkChocalate dark:text-white">

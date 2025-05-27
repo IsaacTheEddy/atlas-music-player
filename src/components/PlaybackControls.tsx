@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useCurrentSongContext } from "./context";
-
-function handleClick(info: string) {
-  return alert(info);
-}
 
 export function PlayBack() {
   const { isPlaying, setIsPlaying } = useCurrentSongContext();
   const { playback, setPlayback } = useCurrentSongContext();
+  const { shuffle, setShuffle } = useCurrentSongContext();
+  const { setCurrentSong, currentSongIndex, setCurrentSongIndex, playlist } =
+    useCurrentSongContext();
 
   const handlePlayback = () => {
     if (playback === 1) {
@@ -19,8 +18,32 @@ export function PlayBack() {
     }
   };
 
+  const playNextSong = () => {
+    if (playlist.length === 0) return;
+    const nextIndex = currentSongIndex + 1;
+    if (nextIndex < playlist.length) {
+      setCurrentSongIndex(nextIndex);
+      setCurrentSong(playlist[nextIndex]);
+      setIsPlaying(true);
+    }
+  };
+
+  const playPreviousSong = () => {
+    if (playlist.length === 0) return;
+
+    const prevIndex = currentSongIndex - 1;
+    if (prevIndex > -1) {
+      setCurrentSongIndex(prevIndex);
+      setCurrentSong(playlist[prevIndex]);
+      setIsPlaying(true);
+    }
+  };
+
   const handlePlayPause = () => {
     isPlaying === true ? setIsPlaying(false) : setIsPlaying(true);
+  };
+  const handleShuffle = () => {
+    shuffle === true ? setShuffle(false) : setShuffle(true);
   };
 
   return (
@@ -30,7 +53,7 @@ export function PlayBack() {
           {playback}x
         </p>
       </button>
-      <button onClick={() => handleClick("rewind")}>
+      <button onClick={() => playPreviousSong()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -81,7 +104,7 @@ export function PlayBack() {
           </svg>
         )}
       </button>
-      <button onClick={() => handleClick("fastforward")}>
+      <button onClick={() => playNextSong()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -98,7 +121,7 @@ export function PlayBack() {
           <polygon points="2 19 11 12 2 5 2 19" />
         </svg>
       </button>
-      <button onClick={() => handleClick("shuffle")}>
+      <button onClick={() => handleShuffle()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
