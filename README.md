@@ -6,4 +6,4 @@ This is a music player that loads songs and playlist from a locally hosted api. 
 - React for HTML, Api fetching, and Functionality
 - TypeScript for type saftey and less buggy code
 
-# [Music Player] (https://gilded-granita-cb7364.netlify.app/)
+# [Music Player](https://gilded-granita-cb7364.netlify.app/)
