@@ -1,12 +1,21 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import { useCurrentSongContext } from "./context";
 
 export function PlayBack() {
   const { isPlaying, setIsPlaying } = useCurrentSongContext();
   const { playback, setPlayback } = useCurrentSongContext();
   const { shuffle, setShuffle } = useCurrentSongContext();
-  const { setCurrentSong, currentSongIndex, setCurrentSongIndex, playlist } =
-    useCurrentSongContext();
+  const {
+    setCurrentSong,
+    currentSongIndex,
+    setCurrentSongIndex,
+    playlist,
+    playNextSong,
+    playPreviousSong,
+  } = useCurrentSongContext();
+
+  const disableNext = useRef<HTMLButtonElement>(null);
+  const disablePrev = useRef<HTMLButtonElement>(null);
 
   const handlePlayback = () => {
     if (playback === 1) {
@@ -18,33 +27,21 @@ export function PlayBack() {
     }
   };
 
-  const playNextSong = () => {
-    if (playlist.length === 0) return;
-    const nextIndex = currentSongIndex + 1;
-    if (nextIndex < playlist.length) {
-      setCurrentSongIndex(nextIndex);
-      setCurrentSong(playlist[nextIndex]);
-      setIsPlaying(true);
-    }
-  };
-
-  const playPreviousSong = () => {
-    if (playlist.length === 0) return;
-
-    const prevIndex = currentSongIndex - 1;
-    if (prevIndex > -1) {
-      setCurrentSongIndex(prevIndex);
-      setCurrentSong(playlist[prevIndex]);
-      setIsPlaying(true);
-    }
-  };
-
   const handlePlayPause = () => {
     isPlaying === true ? setIsPlaying(false) : setIsPlaying(true);
   };
   const handleShuffle = () => {
     shuffle === true ? setShuffle(false) : setShuffle(true);
   };
+
+  useEffect(() => {
+    if (!disableNext.current) {
+      return;
+    }
+    if (currentSongIndex === 0) {
+      disableNext.current.disabled;
+    }
+  }, [currentSongIndex]);
 
   return (
     <div className="flex flex-row justify-between">
@@ -104,7 +101,7 @@ export function PlayBack() {
           </svg>
         )}
       </button>
-      <button onClick={() => playNextSong()}>
+      <button ref={disableNext} onClick={() => playNextSong()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

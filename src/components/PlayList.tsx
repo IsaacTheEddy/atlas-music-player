@@ -2,10 +2,32 @@
 import { currentSongContext, useCurrentSongContext } from "./context";
 
 const PlayList = ({}) => {
-  const { playlist, currentSong, setCurrentSong } = useCurrentSongContext();
+  const {
+    playlist,
+    currentSong,
+    setCurrentSong,
+    setCurrentSongIndex,
+    setLoading,
+  } = useCurrentSongContext();
 
   const handleClick = (song: any) => {
-    setCurrentSong(song);
+    if (song.id !== currentSong.id) {
+      setLoading(true);
+      setCurrentSong(song);
+    }
+  };
+
+  const songFormatter = (song: number | undefined) => {
+    if (!song) {
+      return;
+    }
+    const minutes = Math.floor((song % 3600) / 60);
+    const seconds = song % 60;
+
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(seconds).padStart(2, "0");
+
+    return `${formattedMinutes}:${formattedSeconds}`;
   };
 
   return (
@@ -31,7 +53,7 @@ const PlayList = ({}) => {
                     </p>
                   </div>
                   <div className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
-                    <p>{song.duration}</p>
+                    <p>{songFormatter(song.duration)}</p>
                   </div>
                 </div>
               </>
@@ -52,7 +74,7 @@ const PlayList = ({}) => {
                     </p>
                   </div>
                   <div className="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75">
-                    <p>{song.duration}</p>
+                    <p>{songFormatter(song.duration)}</p>
                   </div>
                 </div>
               </>

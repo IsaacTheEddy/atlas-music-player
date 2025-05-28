@@ -20,7 +20,7 @@ export function VolumeControl() {
   return (
     <div className="mt-2.5 flex flex-row justify-between">
       <button onClick={() => handleMute()}>
-        {mute === false ? (
+        {mute === true ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -56,7 +56,7 @@ export function VolumeControl() {
           </svg>
         )}
       </button>
-      {mute === false ? (
+      {mute === true ? (
         <>
           <input
             disabled
