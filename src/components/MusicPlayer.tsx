@@ -14,7 +14,7 @@ export default function MusicPlayer() {
   useEffect(() => {
     if (lastFetchId.current !== currentSong.id) {
       lastFetchId.current = currentSong.id;
-      fetch(`http://localhost:5173/api/v1/songs/${currentSong.id}`)
+      fetch(`api/v1/songs/${currentSong.id}`)
         .then((response) => response.json())
         .then((data) => setCurrentSong(data))
         .then(() => setLoading(false));

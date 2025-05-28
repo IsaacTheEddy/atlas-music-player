@@ -42,7 +42,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const api = async () => {
       try {
-        const response = await fetch("http://localhost:5173/api/v1/playlist");
+        const response = await fetch("api/v1/playlist");
         if (!response.ok) {
           throw new Error("Error there");
         }
