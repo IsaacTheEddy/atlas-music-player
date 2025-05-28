@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import MusicPlayer from "./MusicPlayer";
-import PlayList from "./PlayList";
+import PlayListItem from "./PlayListItem";
 import { currentSongContext } from "./context";
 import { Skelton } from "./Skeleton/Skeleton";
 import React, { useEffect, useState } from "react";
@@ -140,7 +140,7 @@ export const App: React.FC = () => {
               <MusicPlayer />
             </div>
             <div className="min-h-80% flex h-fit flex-col justify-between p-4">
-              <PlayList />
+              <PlayListItem />
             </div>
           </div>
           <Footer />

@@ -1,7 +1,7 @@
 // import data from "../playlist.json";
 import { currentSongContext, useCurrentSongContext } from "./context";
 
-const PlayList = ({}) => {
+const PlayListItem = ({}) => {
   const {
     playlist,
     currentSong,
@@ -86,4 +86,4 @@ const PlayList = ({}) => {
   );
 };
 
-export default PlayList;
+export default PlayListItem;

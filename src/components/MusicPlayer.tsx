@@ -1,10 +1,9 @@
 import { CoverArt } from "./CoverArt";
-import { PlayBack } from "./PlaybackControls";
-import SongHolder from "./SongHolder";
+import { PlayControls } from "./PlayControls";
+import SongTitle from "./SongTitle";
 import { VolumeControl } from "./VolumeControls";
 import { AudioPlayer } from "./AudioPlayer";
 import { useEffect, useState, useRef } from "react";
-import { DataType } from "./App";
 import { useCurrentSongContext } from "./context";
 
 export default function MusicPlayer() {
@@ -25,8 +24,8 @@ export default function MusicPlayer() {
   return (
     <div className="mx-auto flex flex-col">
       <CoverArt />
-      <SongHolder />
-      <PlayBack />
+      <SongTitle />
+      <PlayControls />
       <VolumeControl />
       <AudioPlayer />
     </div>

@@ -1,18 +1,12 @@
-import React, { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useCurrentSongContext } from "./context";
 
-export function PlayBack() {
+export function PlayControls() {
   const { isPlaying, setIsPlaying } = useCurrentSongContext();
   const { playback, setPlayback } = useCurrentSongContext();
   const { shuffle, setShuffle } = useCurrentSongContext();
-  const {
-    setCurrentSong,
-    currentSongIndex,
-    setCurrentSongIndex,
-    playlist,
-    playNextSong,
-    playPreviousSong,
-  } = useCurrentSongContext();
+  const { currentSongIndex, playNextSong, playPreviousSong } =
+    useCurrentSongContext();
 
   const disableNext = useRef<HTMLButtonElement>(null);
   const disablePrev = useRef<HTMLButtonElement>(null);

@@ -1,6 +1,6 @@
 import { useCurrentSongContext } from "./context";
 
-const SongHolder = () => {
+const SongTitle = () => {
   const { currentSong, duration } = useCurrentSongContext();
   return (
     <div className="flex-nowrap pt-6">
@@ -13,4 +13,4 @@ const SongHolder = () => {
   );
 };
 
-export default SongHolder;
+export default SongTitle;
