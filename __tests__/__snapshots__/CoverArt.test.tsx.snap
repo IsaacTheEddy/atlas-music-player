@@ -1,10 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Image Loads correctly 1`] = `
+exports[`Pass data down through CoverArt 1`] = `
 <div>
   <img
-    alt="Place"
+    alt="Fading Shadows"
     class="size-100 flex-1 rounded-2xl"
+    src="https://utfs.io/f/E9fJnaKtTy1bV09oPkISuh6fWpNsTRlAk1Qj9yqnVzCi32BL"
+  />
+</div>
+`;
+
+exports[`Pass data down through CoverArt 2`] = `
+<div>
+  <img
+    alt="placeholder"
+    class="size-100 flex-1 rounded-2xl"
+    src="placeholder.svg"
   />
 </div>
 `;

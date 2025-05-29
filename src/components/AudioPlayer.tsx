@@ -5,7 +5,6 @@ type Props = {};
 
 export const AudioPlayer = () => {
   const ref = useRef<HTMLAudioElement>(null);
-  const song = useRef<HTMLAudioElement>(null);
   const {
     currentSong,
     setCurrentSong,
@@ -57,7 +56,7 @@ export const AudioPlayer = () => {
   }, [currentSong]);
 
   return (
-    <audio ref={ref} onEnded={() => playNextSong()} autoPlay>
+    <audio ref={ref} onEnded={() => playNextSong?.()} autoPlay>
       <source type="audio/mpeg"></source>
     </audio>
   );

@@ -12,6 +12,9 @@ export function PlayControls() {
   const disablePrev = useRef<HTMLButtonElement>(null);
 
   const handlePlayback = () => {
+    if (!setPlayback) {
+      return;
+    }
     if (playback === 1) {
       setPlayback(2);
     } else if (playback === 2) {
@@ -22,10 +25,10 @@ export function PlayControls() {
   };
 
   const handlePlayPause = () => {
-    isPlaying === true ? setIsPlaying(false) : setIsPlaying(true);
+    isPlaying === true ? setIsPlaying?.(false) : setIsPlaying?.(true);
   };
   const handleShuffle = () => {
-    shuffle === true ? setShuffle(false) : setShuffle(true);
+    shuffle === true ? setShuffle?.(false) : setShuffle?.(true);
   };
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export function PlayControls() {
           {playback}x
         </p>
       </button>
-      <button onClick={() => playPreviousSong()}>
+      <button onClick={() => playPreviousSong?.()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -95,7 +98,7 @@ export function PlayControls() {
           </svg>
         )}
       </button>
-      <button ref={disableNext} onClick={() => playNextSong()}>
+      <button ref={disableNext} onClick={() => playNextSong?.()}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

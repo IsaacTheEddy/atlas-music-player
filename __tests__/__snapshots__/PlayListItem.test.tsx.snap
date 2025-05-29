@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Passing undefined 1`] = `
+<div>
+  <div
+    class="flex w-100 flex-col"
+  >
+    <div
+      class="border-double max-md:border-t-8 dark:border-Mocha"
+    >
+      <h1
+        class="justify-center border-Lightpink pb-5 font-sans text-2xl font-bold"
+      >
+        Playlist
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing for API song 1`] = `
+<div>
+  <div
+    class="flex w-100 flex-col"
+  >
+    <div
+      class="border-double max-md:border-t-8 dark:border-Mocha"
+    >
+      <h1
+        class="justify-center border-Lightpink pb-5 font-sans text-2xl font-bold"
+      >
+        Playlist
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Testing for API song data 1`] = `
+<div>
+  <div
+    class="flex w-100 flex-col"
+  >
+    <div
+      class="border-double max-md:border-t-8 dark:border-Mocha"
+    >
+      <h1
+        class="justify-center border-Lightpink pb-5 font-sans text-2xl font-bold"
+      >
+        Playlist
+      </h1>
+    </div>
+  </div>
+</div>
+`;
