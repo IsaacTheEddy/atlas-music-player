@@ -13,6 +13,25 @@ exports[`Passing undefined 1`] = `
       >
         Playlist
       </h1>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          />
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          />
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p />
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -31,24 +50,256 @@ exports[`Testing for API song 1`] = `
       >
         Playlist
       </h1>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Testing for API song data 1`] = `
-<div>
-  <div
-    class="flex w-100 flex-col"
-  >
-    <div
-      class="border-double max-md:border-t-8 dark:border-Mocha"
-    >
-      <h1
-        class="justify-center border-Lightpink pb-5 font-sans text-2xl font-bold"
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
       >
-        Playlist
-      </h1>
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Painted in Blue
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Soul Canvas
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            03:14
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Tidal Drift
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Echoes of the Sea
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            03:11
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md bg-Mocha hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Fading Shadows
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            The Emberlight
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            03:14
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Cosmic Drift
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Solar Flare
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            04:00
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Urban Serenade
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Midnight Groove
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            02:42
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Whispers in the Wind
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Rust & Ruin
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            03:50
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Electric Fever
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Neon Jungle
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            02:21
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Electric Wildflower
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Velvet Ember
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            02:59
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Golden Haze
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Velvet Waves
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            02:35
+          </p>
+        </div>
+      </div>
+      <div
+        class="flex flex-row rounded-md hover:bg-Mocha"
+      >
+        <div
+          class="flex w-full flex-col"
+        >
+          <h2
+            class="font-sans font-medium"
+          >
+            Shatter the Silence
+          </h2>
+          <p
+            class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+          >
+            Thunderclap Echo
+          </p>
+        </div>
+        <div
+          class="font-sans font-medium text-Mocha/75 dark:text-Lightsoftie/75"
+        >
+          <p>
+            03:44
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

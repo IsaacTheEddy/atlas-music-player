@@ -6,10 +6,16 @@ export function VolumeControl() {
   const { mute, setMute } = useCurrentSongContext();
 
   const handleRangeChange = (event: any) => {
+    if (!setVolume) {
+      return;
+    }
     setVolume(event.target.value);
   };
 
   const handleMute = () => {
+    if (!setMute) {
+      return;
+    }
     if (mute === false) {
       setMute(true);
     } else if (mute === true) {

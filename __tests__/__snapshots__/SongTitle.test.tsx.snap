@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Non empty Song Title, and Artist name passed in 1`] = `
+<div>
+  <div
+    class="flex-nowrap pt-6"
+  >
+    <h2
+      class="font-sans text-2xl font-bold"
+    >
+      Fading Shadows
+    </h2>
+    <p
+      class="font-sans font-bold text-Mocha/75 dark:text-Lightsoftie/75"
+    >
+      The Emberlight
+    </p>
+  </div>
+</div>
+`;
+
+exports[`empty Song Title, Empty Artist name passed in 1`] = `
+<div>
+  <div
+    class="flex-nowrap pt-6"
+  >
+    <h2
+      class="font-sans text-2xl font-bold"
+    >
+      Song Title
+    </h2>
+    <p
+      class="font-sans font-bold text-Mocha/75 dark:text-Lightsoftie/75"
+    >
+      Artist
+    </p>
+  </div>
+</div>
+`;
+
+exports[`empty Song Title, Non Empty Artist name passed in 1`] = `
+<div>
+  <div
+    class="flex-nowrap pt-6"
+  >
+    <h2
+      class="font-sans text-2xl font-bold"
+    >
+      Song Title
+    </h2>
+    <p
+      class="font-sans font-bold text-Mocha/75 dark:text-Lightsoftie/75"
+    >
+      The Emberlight
+    </p>
+  </div>
+</div>
+`;
