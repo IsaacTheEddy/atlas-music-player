@@ -20,14 +20,13 @@ const PAGE_SIZE = 1;
 export const App: React.FC = () => {
   const [playlist, setPlaylist] = useState<DataType[]>([]);
   const [currentSong, setCurrentSong] = useState<DataType>({
-    id: "hdees11mmk6g078ewijlly1r",
-    title: "",
-    artist: "",
-    genre: "",
-    duration: 0,
-    cover: "",
-    isPlaying: false,
-    song: "",
+    id: "a6pkp78whsyqdvpb5dxn64ss",
+    title: "Fading Shadows",
+    artist: "The Emberlight",
+    genre: "Alternative Rock",
+    duration: 194,
+    cover: "https://utfs.io/f/E9fJnaKtTy1bV09oPkISuh6fWpNsTRlAk1Qj9yqnVzCi32BL",
+    song: "https://utfs.io/f/E9fJnaKtTy1ba1N97yFrtlodEaJI0m4wGY9KgyPiUvCf8hMp",
   });
   const [currentSongIndex, setCurrentSongIndex] = useState<number>(0);
 

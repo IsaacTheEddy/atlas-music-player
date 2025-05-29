@@ -1,11 +1,12 @@
 import { useCurrentSongContext } from "./context";
 import placeholder from "../assets/placeholder.svg";
+import { useState } from "react";
 
-export function CoverArt() {
+export const CoverArt = () => {
   const { currentSong, loading } = useCurrentSongContext();
   return (
     <>
-      {loading === true ? (
+      {loading === false ? (
         <img
           className="size-100 flex-1 rounded-2xl"
           src={placeholder}
@@ -15,9 +16,10 @@ export function CoverArt() {
         <img
           className="size-100 flex-1 rounded-2xl"
           src={currentSong.cover}
-          alt="placeholder"
+          alt={currentSong.title}
         />
       )}
     </>
   );
-}
+};
+export default CoverArt;

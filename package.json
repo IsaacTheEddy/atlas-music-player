@@ -19,6 +19,9 @@
     "TypeScript": "npm:typescript@5.7.3"
   },
   "devDependencies": {
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.3.0",
     "@types/node": "22.10.5",
     "@types/react": "19.0.6",
     "@types/react-dom": "19.0.3",
