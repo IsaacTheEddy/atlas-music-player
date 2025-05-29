@@ -3,13 +3,13 @@ import { DataType } from "./App";
 
 interface CurrentSongContextType {
   playlist?: DataType[];
-  currentSong?: DataType;
-  setCurrentSong?: React.Dispatch<React.SetStateAction<DataType>>;
+  currentSong: DataType;
+  setCurrentSong: React.Dispatch<React.SetStateAction<DataType>>;
   currentSongIndex?: number;
   setCurrentSongIndex?: React.Dispatch<React.SetStateAction<number>>;
   setPlaylist?: React.Dispatch<React.SetStateAction<DataType[]>>;
-  isPlaying?: boolean;
-  setIsPlaying?: React.Dispatch<React.SetStateAction<boolean>>;
+  isPlaying: boolean;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   shuffle?: boolean;
   setShuffle?: React.Dispatch<React.SetStateAction<boolean>>;
   mute?: boolean;
@@ -20,8 +20,8 @@ interface CurrentSongContextType {
   setPlayback?: React.Dispatch<React.SetStateAction<0.5 | 1.0 | 2.0>>;
   duration?: number | undefined;
   setDuration?: React.Dispatch<React.SetStateAction<number | undefined>>;
-  loading?: boolean;
-  setLoading?: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   playNextSong?: () => void;
   playPreviousSong?: () => void;
 }
@@ -33,7 +33,7 @@ export const currentSongContext = createContext<
 export function useCurrentSongContext() {
   const currentsong = useContext(currentSongContext);
 
-  if (currentsong === undefined) {
+  if (!currentsong) {
     throw new Error("Use current song context correctly scrub");
   }
   return currentsong;

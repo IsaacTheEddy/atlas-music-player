@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Image Loads correctly 1`] = `
+<div>
+  <img
+    alt="Place"
+    class="size-100 flex-1 rounded-2xl"
+  />
+</div>
+`;

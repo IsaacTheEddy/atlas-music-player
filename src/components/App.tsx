@@ -6,14 +6,14 @@ import { Skelton } from "./Skeleton/Skeleton";
 import React, { useEffect, useState } from "react";
 
 export interface DataType {
-  id?: string;
-  title?: string;
-  artist?: string;
-  genre?: string;
-  duration?: number;
-  cover?: string;
-  song?: string;
-  isPlaying?: boolean;
+  id: string;
+  title: string;
+  artist: string;
+  genre: string;
+  duration: number;
+  cover: string;
+  song: string;
+  isPlaying: boolean;
 }
 const PAGE_SIZE = 1;
 
@@ -27,6 +27,7 @@ export const App: React.FC = () => {
     duration: 194,
     cover: "https://utfs.io/f/E9fJnaKtTy1bV09oPkISuh6fWpNsTRlAk1Qj9yqnVzCi32BL",
     song: "https://utfs.io/f/E9fJnaKtTy1ba1N97yFrtlodEaJI0m4wGY9KgyPiUvCf8hMp",
+    isPlaying: false,
   });
   const [currentSongIndex, setCurrentSongIndex] = useState<number>(0);
 
@@ -50,12 +51,10 @@ export const App: React.FC = () => {
         if (jsonData.length > 0) {
           setCurrentSong(jsonData[0]);
           setCurrentSongIndex(0);
-          setLoading(false);
         }
       } catch (e: any) {
         throw new Error("Error here");
       } finally {
-        setLoading(false);
       }
     };
     api();
@@ -73,7 +72,8 @@ export const App: React.FC = () => {
       setCurrentSong(playlist[nextIndex]);
       setIsPlaying(true);
     } else if (nextIndex === 10) {
-      setLoading(true), setCurrentSongIndex(0);
+      setLoading(true);
+      setCurrentSongIndex(0);
       setCurrentSong(playlist[0]);
       setIsPlaying(true);
     } else {

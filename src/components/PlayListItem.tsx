@@ -8,12 +8,14 @@ const PlayListItem = ({}) => {
     setCurrentSong,
     setCurrentSongIndex,
     setLoading,
+    setIsPlaying,
   } = useCurrentSongContext();
 
   const handleClick = (song: any) => {
     if (song.id !== currentSong.id) {
       setLoading(true);
       setCurrentSong(song);
+      setIsPlaying(true);
     }
   };
 

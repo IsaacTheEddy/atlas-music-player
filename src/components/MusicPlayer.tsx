@@ -1,4 +1,4 @@
-import { CoverArt } from "./CoverArt";
+import CoverArt from "./CoverArt";
 import { PlayControls } from "./PlayControls";
 import SongTitle from "./SongTitle";
 import { VolumeControl } from "./VolumeControls";
@@ -13,13 +13,12 @@ export default function MusicPlayer() {
   useEffect(() => {
     if (lastFetchId.current !== currentSong.id) {
       lastFetchId.current = currentSong.id;
-      fetch(`api/v1/songs/${currentSong.id}`)
+      fetch(`/api/v1/songs/${currentSong.id}`)
         .then((response) => response.json())
         .then((data) => setCurrentSong(data))
-        .then(() => setLoading(false));
+        .finally(() => setLoading(false));
     }
   }, [currentSong.id, setCurrentSong]);
-  console.log(currentSong);
 
   return (
     <div className="mx-auto flex flex-col">
