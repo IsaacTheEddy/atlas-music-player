@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useCurrentSongContext } from "./context";
 
 type Props = {};
@@ -8,6 +8,7 @@ export const AudioPlayer = () => {
   const song = useRef<HTMLAudioElement>(null);
   const {
     currentSong,
+    setCurrentSong,
     isPlaying,
     volume,
     mute,
@@ -31,6 +32,9 @@ export const AudioPlayer = () => {
     if (!ref.current) {
       return;
     }
+    if (!volume) {
+      return;
+    }
     if (mute === true) {
       ref.current.volume = 0;
     } else {
@@ -52,16 +56,9 @@ export const AudioPlayer = () => {
     ref.current.src = currentSong.song;
   }, [currentSong]);
 
-  useEffect(() => {
-    if (!ref.current) {
-      return;
-    }
-    setDuration(ref.current.currentTime);
-  }, [duration, currentSong]);
-
   return (
     <audio ref={ref} onEnded={() => playNextSong()} autoPlay>
-      <source ref={song} type="audio/mpeg"></source>
+      <source type="audio/mpeg"></source>
     </audio>
   );
 };
